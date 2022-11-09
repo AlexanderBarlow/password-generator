@@ -47,7 +47,7 @@ function generatePassword() {
   }
   
   //prompting user for password length
-  var characterAmount = prompt("How many characters would you like to include? ")
+  var characterAmount = prompt("How many characters would you like to include?(Between 8-128) ")
   console.log(characterAmount)
 
   if (isNaN(characterAmount)){
@@ -55,10 +55,11 @@ function generatePassword() {
     return
   }
   //verfying the password is at least 8 characters long and less than 128
-  while (characterAmount < 8  || characterAmount > 128){
-    characterAmount = prompt("Please choose a greater than 8, but less than 128.")
-    return
-  } 
+  if (characterAmount < 8  || characterAmount > 128){ 
+    characterAmount = prompt("Please choose a number greater than 8, but less than 128.") 
+  }
+
+  
   //Alerting user for successfully filling out criteria
   if(characterAmount >= 8  || characterAmount <= 128 ){
     alert("Thank you!")
