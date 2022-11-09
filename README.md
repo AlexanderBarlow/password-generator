@@ -6,8 +6,8 @@ A random password was needing to be generated for security purposed. The need ca
 
 ## Installation
 
-Visit the website at this url:
-Visit the GitHub Repo at this url:
+Visit the website at this url: https://alexanderbarlow.github.io/password-generator/
+Visit the GitHub Repo at this url: https://github.com/AlexanderBarlow/password-generator
 
 ## Usage
 
