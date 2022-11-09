@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = writePassword.generatePassword();
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -18,19 +18,30 @@ characterList = {
   character: ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'),
   specialCharacter: ('!', '?', '#', '*'),
 }
-var selectUpperCase = '';
-var selectSpecial = '';
-var characterAmount = '';
+var selectUpperCase;
+var selectSpecial;
+var characterAmount;
+var selectLowerCase;
 
 
 function writePassword(){
-
 var selectUpperCase = confirm ("Would you like uppercased characters?");
 console.log(selectUpperCase);
 var selectLowerCase = confirm ("Would you like lowercased characters?")
 console.log(selectLowerCase);
 var selectSpecial = confirm ("Would you like special characters?");
 console.log(selectSpecial);
+
+if (selectUpperCase === false && selectLowerCase === false && selectSpecial === false){
+  alert("Please select at least one.")
+  var selectUpperCase = confirm ("Would you like uppercased characters?");
+  console.log(selectUpperCase);
+  var selectLowerCase = confirm ("Would you like lowercased characters?")
+  console.log(selectLowerCase);
+  var selectSpecial = confirm ("Would you like special characters?");
+  console.log(selectSpecial);
+}
+
 var characterAmount = prompt("How many characters would you like to include? ");
 
 while (characterAmount < 8  || characterAmount > 128){
@@ -45,10 +56,13 @@ if(characterAmount >= 8  || characterAmount <= 128 ){
 
 function generatePassword(){
 
-  if (selectUpperCase === true && selectSpecial === true){
-    for (var i = 0; i <= characterAmount; i++){
-      password = math.floor(math.random() * characterList.num.length);
+  if (selectUpperCase === true && selectSpecial === true && selectLowerCase === true)
+  {
+    for (var i = 0; i <= characterAmount; i++)
+    {
+      password = i;
     }
+   
     return;
   }
 
