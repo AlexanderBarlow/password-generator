@@ -33,27 +33,42 @@ function generatePassword() {
   //if user selects none, user will be asked to accept one condition, will repeat until done
   if (selectUpperCase === false && selectLowerCase === false && selectSpecial === false){
     alert("Please select at least one.")
-    var selectUpperCase = confirm ("Would you like uppercased characters?");
-    console.log(selectUpperCase);
-    var selectLowerCase = confirm ("Would you like lowercased characters?")
-    console.log(selectLowerCase);
-    var selectSpecial = confirm ("Would you like special characters?");
-    console.log(selectSpecial);
+     selectUpperCase = confirm ("Would you like uppercased characters?")
+    console.log(selectUpperCase)
+     selectLowerCase = confirm ("Would you like lowercased characters?")
+    console.log(selectLowerCase)
+     selectSpecial = confirm ("Would you like special characters?")
+    console.log(selectSpecial)
   }
   
   //prompting user for password length
   var characterAmount = prompt("How many characters would you like to include? ");
+
+  if (isNaN(characterAmount)){
+    alert("Please only enter a number in character form.")
+    return
+  }
   //verfying the password is at least 8 characters long and less than 128
   while (characterAmount < 8  || characterAmount > 128){
-    characterAmount = prompt("Please choose a greater than 8, but less than 128.");
+    characterAmount = prompt("Please choose a greater than 8, but less than 128.")
+    return
   } 
   //Alerting user for successfully filling out criteria
   if(characterAmount >= 8  || characterAmount <= 128 ){
     alert("Thank you!")
   }
 
-  for (var i = 0; i < characterAmount.length; i++){
-    password = Math.floor(Math.random * characterList.num.length) + Math.random(characterList.character) + Math.random(characterList.specialCharacter)
+  var randomPassword = []
+
+  if (selectUpperCase === true){
+    randomPassword.push(characterList.character.toUpperCase())
   }
-  return;
-};
+
+  if (selectLowerCase === true){
+    randomPassword.push(characterList.character)
+  }
+
+  if (selectSpecial === true){
+    randomPassword.push(characterList.specialCharacter)
+  }
+}
